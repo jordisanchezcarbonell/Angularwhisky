@@ -1,0 +1,168 @@
+<!-- 
+<h1>KPRDO</h1>
+
+<table>
+    <thead>
+        <tr> whiskys</tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let whisky of ARRAYELEMENT">
+            <td>
+                {{whisky.whisky}}
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+-->
+<div class="Centrar mat-elevation-z8 ">
+<h1>TABLAS WHISKY</h1>
+
+
+    <mat-form-field  appearance="fill" class="colorFilter">
+        <input matInput type="text"  (input)="handleInput($event)"   placeholder="Filter">
+        
+    </mat-form-field>
+
+
+   
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="demo-position">
+        <th mat-header-cell *matHeaderCellDef> id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="demo-name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.whisky}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="demo-metacritic">
+        <th mat-header-cell *matHeaderCellDef> metacritic </th>
+        <td mat-cell *matCellDef="let element"> {{element.metacritic}} </td>
+    </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="demo-stdev">
+            <th mat-header-cell *matHeaderCellDef> stdev </th>
+            <td mat-cell *matCellDef="let element"> {{element.stdev}} </td>
+        </ng-container>
+    <!-- hastac Column -->
+    <ng-container matColumnDef="demo-hastac">
+        <th mat-header-cell *matHeaderCellDef> hastac </th>
+        <td mat-cell *matCellDef="let element"> {{element.hastac}} </td>
+    </ng-container>
+    <!-- hastac Column -->
+    <ng-container matColumnDef="demo-cost">
+        <th mat-header-cell *matHeaderCellDef> cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+    </ng-container>
+<ng-container matColumnDef="demo-classWhisky">
+    <th mat-header-cell *matHeaderCellDef> classWhisky </th>
+    <td mat-cell *matCellDef="let element"> {{element.classWhisky}} </td>
+</ng-container>
+<ng-container matColumnDef="demo-superCluster">
+    <th mat-header-cell *matHeaderCellDef> superCluster </th>
+    <td mat-cell *matCellDef="let element"> {{element.superCluster}} </td>
+</ng-container>
+<ng-container matColumnDef="demo-cluster">
+    <th mat-header-cell *matHeaderCellDef> cluster </th>
+    <td mat-cell *matCellDef="let element"> {{element.cluster}} </td>
+</ng-container>
+<ng-container matColumnDef="demo-country">
+    <th mat-header-cell *matHeaderCellDef> country </th>
+    <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+</ng-container>
+<ng-container matColumnDef="demo-type">
+    <th mat-header-cell *matHeaderCellDef> type </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+</ng-container>
+
+<ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef> ADD </th>
+    <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary">
+            <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+    </td>
+</ng-container>
+<ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" (click)="Updateelement(element)">
+            <mat-icon class="mat-18">system_update</mat-icon>
+        </button>
+    </td>
+</ng-container>
+<ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="mostrarDialogo(element)">
+            <mat-icon class="mat-18">delete</mat-icon>
+        </button>
+    </td>
+</ng-container>
+  
+ 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+</mat-paginator>
+<!--<button mat-raised-button mat-button color="warn" (click)="mostrarDialogo()">Mostrar diálogo</button>-->
+
+</div>  
+
+<!--
+<section class="sample-app-content">
+    <h1>Reactive Form Example:</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p>
+            <label> Name whisky:</label>
+            <input type="text" formControlName="Namewhisky">
+        </p>
+        <p>
+            <label>metacritic:</label>
+            <input type="number" formControlName="metacritic">
+        </p>
+        <p>
+            <label>stdev:</label>
+            <input type="number" formControlName="stdev">
+        </p>
+        <p>
+            <label>hastac:</label>
+            <input type="number" formControlName="hastac">
+        </p>
+        <p>
+            <label>cost:</label>
+            <input type="text" formControlName="cost">
+        </p>
+        <p>
+            <label>classWhisky:</label>
+            <input type="text" formControlName="classWhisky">
+        </p>
+        <p>
+            <label>superCluster:</label>
+            <input type="text" formControlName="superCluster">
+        </p>
+        <p>
+            <label>cluster:</label>
+            <input type="text" formControlName="cluster">
+        </p>
+        <p>
+            <label>country:</label>
+            <input type="text" formControlName="country">
+        </p>
+        <p>
+            <label>type:</label>
+            <input type="text" formControlName="type">
+        </p>
+        <p>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</section>-->
+<app-form></app-form>

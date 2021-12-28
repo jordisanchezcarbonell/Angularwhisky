@@ -1,0 +1,124 @@
+<ng-container *ngIf="data!=null; then loggedIn; else loggedOut">
+</ng-container>
+
+<ng-template #loggedIn>
+
+<section class="sample-app-content">
+    <h1>Reactive Form Example:</h1>
+    
+
+  
+    <form [formGroup]="form" (ngSubmit)="Update()">
+    
+        <p>
+            <label> ID:</label>
+            <input  type="number" formControlName="id" >
+        </p>
+        <p>
+            <label> Name whisky:</label>
+            <input type="text" formControlName="whisky">
+        </p>
+        <p>
+            <label>metacritic:</label>
+            <input type="number" formControlName="metacritic">
+        </p>
+        <p>
+            <label>stdev:</label>
+            <input type="number" formControlName="stdev">
+        </p>
+        <p>
+            <label>hastac:</label>
+            <input type="number" formControlName="hastac">
+        </p>
+        <p>
+            <label>cost:</label>
+            <input type="text" formControlName="cost">
+        </p>
+        <p>
+            <label>classWhisky:</label>
+            <input type="text" formControlName="classWhisky">
+        </p>
+        <p>
+            <label>superCluster:</label>
+            <input type="text" formControlName="superCluster">
+        </p>
+        <p>
+            <label>cluster:</label>
+            <input type="text" formControlName="cluster">
+        </p>
+        <p>
+            <label>country:</label>
+            <input type="text" formControlName="country">
+        </p>
+        <p>
+            <label>type:</label>
+            <input type="text" formControlName="type">
+        </p>
+        <p>
+            
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</section>
+
+</ng-template>
+
+
+<ng-template #loggedOut>
+
+<section class="sample-app-content">
+    <h1>Reactive Form Example:</h1>
+
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    
+        <p>
+            <label> Name whisky:</label>
+            <input type="text" formControlName="whisky">
+        </p>
+        <p>
+            <label>metacritic:</label>
+            <input type="number" formControlName="metacritic">
+        </p>
+        <p>
+            <label>stdev:</label>
+            <input type="number" formControlName="stdev">
+        </p>
+        <p>
+            <label>hastac:</label>
+            <input type="number" formControlName="hastac">
+        </p>
+        <p>
+            <label>cost:</label>
+            <input type="text" formControlName="cost">
+        </p>
+        <p>
+            <label>classWhisky:</label>
+            <input type="text" formControlName="classWhisky">
+        </p>
+        <p>
+            <label>superCluster:</label>
+            <input type="text" formControlName="superCluster">
+        </p>
+        <p>
+            <label>cluster:</label>
+            <input type="text" formControlName="cluster">
+        </p>
+        <p>
+            <label>country:</label>
+            <input type="text" formControlName="country">
+        </p>
+        <p>
+            <label>type:</label>
+            <input type="text" formControlName="type">
+        </p>
+        <p>
+
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</section>
+
+    </ng-template>
