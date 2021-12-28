@@ -8,11 +8,17 @@ import { Observable } from "rxjs";
 })
 export class ApiService {
 
-  whiskys: Whisky[] =[]; 
-  private whiskyUrl = "http://localhost:8081/api/whisky/all"; // URL to web api
-  private whiskyDELETE = "http://localhost:8081/api/whisky/deleteWhisky"
-  private wiskyPOST = "http://localhost:8081/api/whisky/addWhisky"
-  private wiskyupdate = "http://localhost:8081/api/whisky/updateWhisky/"
+  whiskys: Whisky[] = []; 
+  private whuskyBase = "https://javawhisky.herokuapp.com";
+  private whiskyUrl = "https://javawhisky.herokuapp.com/api/whisky/all"; // URL to web api
+  private whiskyDELETE = "https://javawhisky.herokuapp.com/api/whisky/deleteWhisky"
+  private wiskyPOST = "https://javawhisky.herokuapp.com/api/whisky/addWhisky"
+  private wiskyupdate = "https://javawhisky.herokuapp.com/api/whisky/updateWhisky/"
+
+  //private whiskyUrl = "http://localhost:8081/api/whisky/all"; // URL to web api
+  //private whiskyDELETE = "http://localhost:8081/api/whisky/deleteWhisky"
+  //private wiskyPOST = "http://localhost:8081/api/whisky/addWhisky"
+  //private wiskyupdate = "http://localhost:8081/api/whisky/updateWhisky/"
  
   constructor(private http: HttpClient) { }
 
